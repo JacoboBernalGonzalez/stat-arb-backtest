@@ -1,0 +1,31 @@
+data:
+  tickers: [KO, PEP]
+  start: "2015-01-01"
+  end: "2024-12-31"
+  interval: 1d
+  use_cache: true
+
+cointegration:
+  pvalue_threshold: 0.05
+  maxlag: null
+
+strategy:
+  use_log_prices: true
+  z_window: 60
+  hedge_window: null      # null -> expanding OLS hedge ratio
+  hedge_min_periods: 120
+  entry_z: 2.0
+  exit_z: 0.5
+  stop_z: 4.0
+  max_holding_days: 30
+
+backtest:
+  capital: 100000
+  cost_bps: 1.0
+  slippage_bps: 0.5
+  ann_factor: 252
+
+output:
+  dir: output
+  save_plots: true
+  save_trades: true
